@@ -29,4 +29,14 @@ describe('LinkedList', () => {
 
         expect(list.tail.value).toEqual(2);
     });
+
+    test('Prepended node value should equal to head value', () => {
+        const list = new LinkedList(2);
+        list.append(3);
+        list.append(10);
+        list.append(4);
+        list.prepend(-1);
+
+        expect(list.head.value).toEqual(-1);
+    });
 });

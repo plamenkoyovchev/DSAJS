@@ -13,6 +13,23 @@ class LinkedList {
         this.tail = newNode;
         this.length++;
     }
+
+    prepend(value) {
+        const newNode = new Node(value, this.head);
+        this.head = newNode;
+        this.length++;
+    }
+
+    toArray() {
+        const array = [];
+        let currentNode = this.head;
+        while (currentNode) {
+            array.push(currentNode.value);
+            currentNode = currentNode.next;
+        }
+
+        return array;
+    }
 }
 
 module.exports = LinkedList;
