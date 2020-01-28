@@ -21,21 +21,23 @@ class LinkedList {
     }
 
     insert(index, value) {
-        const newNode = new Node(value);
-        if (index <= 0) {
-            this.prepend(newNode);
-            return;
+        if (index < 0 || index >= this.length) {
+            return undefined;
         }
 
-        if (index >= this.length) {
-            this.append(newNode);
-            return;
-        }
+        if (index === 0) {
+            this.prepend(value);
+        } else if (index === this.length - 1) {
+            this.append(value);
+        } else {
+            const newNode = new Node(value);
+            const leader = this.findLeader(index - 1);
+            const nodeToMoveForward = leader.next;
+            leader.next = newNode;
+            newNode.next = nodeToMoveForward;
 
-        const leader = this.findLeader(index - 1);
-        const nodeToMoveForward = leader.next;
-        leader.next = newNode;
-        newNode.next = nodeToMoveForward;
+            this.length++;
+        }
     }
 
     remove(index) {
@@ -46,12 +48,15 @@ class LinkedList {
         if (index === 0) {
             const unwantedNode = this.head;
             this.head = unwantedNode.next;
+            this.length--;
             return;
         }
 
         const leader = this.findLeader(index - 1);
         const unwantedNode = leader.next;
         leader.next = unwantedNode.next;
+
+        this.length--;
     }
 
     findLeader(index) {
