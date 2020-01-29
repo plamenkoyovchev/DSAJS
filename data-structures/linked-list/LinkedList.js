@@ -21,17 +21,17 @@ class LinkedList {
     }
 
     insert(index, value) {
-        const newNode = new Node(value);
         if (index <= 0) {
-            this.prepend(newNode);
+            this.prepend(value);
             return;
         }
 
         if (index >= this.length) {
-            this.append(newNode);
+            this.append(value);
             return;
         }
 
+        const newNode = new Node(value);
         const leader = this.findLeader(index - 1);
         const nodeToMoveForward = leader.next;
         leader.next = newNode;
