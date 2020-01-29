@@ -2,7 +2,7 @@ const LinkedList = require('./LinkedList');
 const Node = require('./Node');
 
 describe('Node', () => {
-    test('Node is a class', () => {
+    test('is a class', () => {
         expect(typeof Node.prototype.constructor).toEqual('function')
     });
 
@@ -57,7 +57,7 @@ describe('LinkedList', () => {
         list.append(10);
         list.append(4);
 
-        list.insert(list.length, 0);
+        list.insert(list.length - 1, 0);
 
         expect(list.tail.value).toEqual(0);
     });
