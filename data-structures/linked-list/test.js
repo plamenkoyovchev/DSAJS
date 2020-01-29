@@ -14,29 +14,38 @@ describe('Node', () => {
 });
 
 describe('LinkedList', () => {
+    const list = new LinkedList(2);
+
     test('LinkedList is a class', () => {
         expect(typeof LinkedList.prototype.constructor).toEqual('function')
     });
 
     test('The head and the tail of the linked list should be equal when initialize LinkedList', () => {
-        const list = new LinkedList(10);
         expect(list.head).toEqual(list.tail);
     })
 
     test('Appended node value should equal tail value', () => {
-        const list = new LinkedList(1);
         list.append(2);
 
         expect(list.tail.value).toEqual(2);
     });
 
     test('Prepended node value should equal to head value', () => {
-        const list = new LinkedList(2);
         list.append(3);
         list.append(10);
         list.append(4);
         list.prepend(-1);
 
         expect(list.head.value).toEqual(-1);
+    });
+
+    test('Insert at zero index value equal to 0 and head value should be 0', () => {
+        list.append(3);
+        list.append(10);
+        list.append(4);
+
+        list.insert(0, 0);
+
+        expect(list.head.value).toEqual(0);
     });
 });
