@@ -51,7 +51,17 @@ class DoublyLinkedList {
     }
 
     remove(index) {
+        if (index < 0 || index >= this.length) {
+            return undefined;
+        }
 
+        if (index === 0) {
+            let unwantedNode = this.head;
+            this.head = unwantedNode.next;
+            this.head.prev = null;
+            this.length--;
+            return;
+        }
     }
 
     indexOf(value) {
@@ -97,3 +107,21 @@ class DoublyLinkedList {
 }
 
 module.exports = DoublyLinkedList;
+
+const list = new DoublyLinkedList(1);
+list.append(2);
+list.append(3);
+list.append(4);
+// list.append(5);
+// list.append(5);
+// list.prepend(-1);
+// list.append(777);
+// list.prepend(0);
+list.insert(0, -2);
+list.insert(4, -2);
+list.insert(2, 0);
+list.insert(5, 5);
+list.remove(5);
+list.remove(list.length - 1);
+console.log(list.toArray());
+console.log(list.tail);
