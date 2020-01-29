@@ -48,4 +48,14 @@ describe('LinkedList', () => {
 
         expect(list.head.value).toEqual(0);
     });
+
+    test('Insert at back of the list value equal to 0 and tail value should be 0', () => {
+        list.append(3);
+        list.append(10);
+        list.append(4);
+
+        list.insert(list.length, 0);
+
+        expect(list.tail.value).toEqual(0);
+    });
 });
