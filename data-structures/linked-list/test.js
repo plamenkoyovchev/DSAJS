@@ -71,3 +71,38 @@ describe('LinkedList', () => {
         expect(list.length).toEqual(4);
     });
 });
+
+describe('LinkedList reverse function', () => {
+    test('reverse list with one node', () => {
+        const list = new LinkedList(9);
+        list.reverse();
+
+        expect(list.toArray()).toEqual([9]);
+        expect(list.head).toEqual(list.tail);
+    });
+
+    test('reverse list with two nodes', () => {
+        const list = new LinkedList(1);
+        list.append(2);
+
+        const head = list.head;
+        const tail = list.tail;
+
+        list.reverse();
+
+        expect(list.tail).toEqual(head);
+        expect(list.head).toEqual(tail);
+        expect(list.toArray()).toEqual([2, 1]);
+    });
+
+    test('reverse list with multiple nodes', () => {
+        const list = new LinkedList(1);
+        list.append(3);
+        list.append(4);
+        list.append(7);
+
+        list.reverse();
+
+        expect(list.toArray()).toEqual([7, 4, 3, 1]);
+    });
+});
