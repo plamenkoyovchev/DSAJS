@@ -35,4 +35,15 @@ class HashTable {
             }
         }
     }
+
+    keys() {
+        const keys = [];
+        for (let i = 0; i < this.data.length; i++) {
+            if (data[i]) {
+                keys.push(this.data[i][0][0]);
+            }
+        }
+
+        return keys;
+    }
 }
