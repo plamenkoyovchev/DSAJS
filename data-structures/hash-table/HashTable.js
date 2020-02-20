@@ -46,4 +46,8 @@ class HashTable {
 
         return keys;
     }
+
+    values() {
+        throw new Error('Not implemented error');
+    }
 }
