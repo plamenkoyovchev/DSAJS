@@ -38,4 +38,23 @@ describe('Stack', () => {
         stack.push(2);
         expect(stack.peek().value).toEqual(2);
     });
+
+    test('new Stack should be empty', () => {
+        const stack = new Stack();
+        expect(stack.empty()).toEqual(true);
+    });
+
+    test('push and pop to new Stack and stack should be empty', () => {
+        const stack = new Stack();
+        stack.push(1);
+        stack.pop();
+        expect(stack.empty()).toEqual(true);
+    });
+
+    test('push value to new Stack and stack shouldnt be empty', () => {
+        const stack = new Stack();
+        stack.push(1);
+
+        expect(stack.empty()).toEqual(false);
+    });
 });
