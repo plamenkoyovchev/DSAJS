@@ -23,14 +23,17 @@ describe('Stack', () => {
 
         stack.push(1);
         expect(stack.top.value).toEqual(stack.bottom.value);
+        expect(stack.length).toEqual(1);
 
         stack.push(2);
         expect(stack.top.value).toEqual(2);
         expect(stack.top.next.value).toEqual(1);
+        expect(stack.length).toEqual(2);
 
         stack.push(3);
         expect(stack.top.value).toEqual(3);
         expect(stack.top.next.value).toEqual(2);
+        expect(stack.length).toEqual(3);
     });
 
     test('peek', () => {
@@ -41,6 +44,15 @@ describe('Stack', () => {
 
         stack.push(2);
         expect(stack.peek().value).toEqual(2);
+    });
+
+    test('peek shouldnt remove elements from the stack', () => {
+        const stack = new Stack();
+        stack.push(1);
+        stack.peek();
+
+        expect(stack.length).toEqual(1);
+        expect(stack.empty()).toEqual(false);
     });
 
     test('new Stack should be empty', () => {
