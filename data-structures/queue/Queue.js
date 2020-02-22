@@ -2,8 +2,8 @@ const Node = require('../linked-list/Node');
 
 class Queue {
     constructor() {
-        this.top = null;
-        this.bottom = null;
+        this.first = null;
+        this.last = null;
         this.length = 0;
     }
 
