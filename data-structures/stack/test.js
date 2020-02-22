@@ -36,6 +36,11 @@ describe('Stack', () => {
         expect(stack.length).toEqual(3);
     });
 
+    test('peek empty Stack should return null', () => {
+        const stack = new Stack();
+        expect(stack.peek()).toEqual(null);
+    });
+
     test('peek', () => {
         const stack = new Stack();
         stack.push(1);
