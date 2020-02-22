@@ -11,6 +11,10 @@ describe('Stack', () => {
         expect(stack.pop().value).toEqual(3);
         expect(stack.pop().value).toEqual(2);
         expect(stack.pop().value).toEqual(1);
+    });
+
+    test('pop empty Stack should return undefined', () => {
+        const stack = new Stack();
         expect(stack.pop()).toEqual(undefined);
     });
 
