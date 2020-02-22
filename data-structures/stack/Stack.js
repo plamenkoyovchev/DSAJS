@@ -34,13 +34,12 @@ class Stack {
             this.bottom = null;
         }
 
-        const poppedNode = this.top;
-        const topCandidate = this.top.next;
-        this.top = topCandidate;
+        const nodeToPop = this.top;
+        this.top = this.top.next;
 
         this.length--;
 
-        return poppedNode;
+        return nodeToPop;
     }
 
     empty() {
