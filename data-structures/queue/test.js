@@ -74,7 +74,7 @@ describe('Queue', () => {
         expect(queue.peek()).toEqual(null);
     });
 
-    test('peek should return last added element', () => {
+    test('peek should return first element', () => {
         const queue = new Queue();
 
         queue.enqueue(1);
@@ -82,7 +82,7 @@ describe('Queue', () => {
 
         const peek = queue.peek();
         expect(peek).not.toEqual(null);
-        expect(peek.value).toEqual(2);
+        expect(peek.value).toEqual(1);
     });
 
     test('empty should be true if queue is newly instantiated', () => {

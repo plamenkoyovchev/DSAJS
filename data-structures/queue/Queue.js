@@ -8,7 +8,7 @@ class Queue {
     }
 
     peek() {
-        return this.last;
+        return this.first;
     }
 
     enqueue(value) {
@@ -16,9 +16,8 @@ class Queue {
         if (this.first === null) {
             this.first = this.last = newNode;
         } else {
-            const refToLast = this.last;
+            this.last.next = newNode;
             this.last = newNode;
-            this.last.next = refToLast;
         }
 
         this.length++;
@@ -37,13 +36,8 @@ class Queue {
             return node;
         }
 
-        let currentNode = this.last;
-        while (currentNode && currentNode.next !== this.first) {
-            currentNode = currentNode.next;
-        }
-
         const node = this.first;
-        this.first = currentNode;
+        this.first = this.first.next;
         this.length--;
 
         return node;
