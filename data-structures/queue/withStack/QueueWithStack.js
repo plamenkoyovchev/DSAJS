@@ -16,13 +16,15 @@ class QueueWithStack {
         }
 
         while (this.stack1.peek()) {
-            this.stack2.push(this.stack1.pop());
+            let currentNode = this.stack1.pop();
+            this.stack2.push(currentNode.value);
         }
 
         const peek = this.stack2.peek();
 
         while (this.stack2.peek()) {
-            this.stack1.push(this.stack2.pop());
+            let currentNode = this.stack2.pop();
+            this.stack1.push(currentNode.value);
         }
 
         return peek;
@@ -38,18 +40,19 @@ class QueueWithStack {
         }
 
         if (this.stack1.length === 1) {
-            const node = this.stack1.pop();
-            return node;
+            return this.stack1.pop();
         }
 
         while (this.stack1.peek()) {
-            this.stack2.push(this.stack1.pop());
+            let currentNode = this.stack1.pop();
+            this.stack2.push(currentNode.value);
         }
 
         const node = this.stack2.pop();
 
         while (this.stack2.peek()) {
-            this.stack1.push(this.stack2.pop());
+            let currentNode = this.stack2.pop();
+            this.stack1.push(currentNode.value);
         }
 
         return node;
