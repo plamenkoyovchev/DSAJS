@@ -19,7 +19,7 @@ class Stack {
         } else {
             const holdingPointer = this.top;
             this.top = newNode;
-            newNode.next = holdingPointer;
+            this.top.next = holdingPointer;
         }
 
         this.length++;
