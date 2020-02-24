@@ -42,11 +42,7 @@ class BinarySearchTree {
         }
 
         let currentNode = this.root;
-        while (true) {
-            if (!currentNode) {
-                return null;
-            }
-
+        while (currentNode) {
             if (value === currentNode.value) {
                 return currentNode;
             }
@@ -57,6 +53,12 @@ class BinarySearchTree {
                 currentNode = currentNode.right;
             }
         }
+
+        return null;
+    }
+
+    remove(value) {
+
     }
 }
 
