@@ -34,4 +34,35 @@ describe('Hashtable', () => {
 
         expect(ht.keys()).toEqual([]);
     });
+
+    test('Add seven pairs to the hashtable and keys length should equal 7', () => {
+        const ht = new HashTable(16);
+
+        ht.add('1', 1);
+        ht.add('2', 2);
+        ht.add('3', 3);
+        ht.add('four', 4);
+        ht.add('5', 5);
+        ht.add('6dsds', 6);
+        ht.add('7', 7);
+
+        expect(ht.keys().length).toEqual(7);
+    });
+
+    test('keys should return all keys in the dictionary', () => {
+        const ht = new HashTable(16);
+
+        ht.add('1', 1);
+        ht.add('2', 2);
+        ht.add('3', 3);
+        ht.add('four', 4);
+        ht.add('5', 5);
+        ht.add('6dsds', 6);
+        ht.add('7', 7);
+
+        const expectedKeys = ['1', '2', '3', 'four', '5', '6dsds', '7'];
+
+        expect(ht.keys())
+            .toEqual(expect.arrayContaining(expectedKeys));
+    });
 });

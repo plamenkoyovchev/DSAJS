@@ -43,7 +43,9 @@ class HashTable {
         const keys = [];
         for (let i = 0; i < this.data.length; i++) {
             if (this.data[i]) {
-                keys.push(this.data[i][0][0]);
+                for (let j = 0; j < this.data[i].length; j++) {
+                    keys.push(this.data[i][j][0]);
+                }
             }
         }
 
