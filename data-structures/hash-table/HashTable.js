@@ -1,6 +1,8 @@
 class HashTable {
     constructor(size) {
         this.data = new Array(size);
+
+        this.length = 0;
     }
 
     _hash(key) {
@@ -19,6 +21,7 @@ class HashTable {
         }
 
         this.data[address].push([key, value]);
+        this.length++;
     }
 
     // address -> [['grapes', 10000], ['gr', 1]]
@@ -39,7 +42,7 @@ class HashTable {
     keys() {
         const keys = [];
         for (let i = 0; i < this.data.length; i++) {
-            if (data[i]) {
+            if (this.data[i]) {
                 keys.push(this.data[i][0][0]);
             }
         }
@@ -51,3 +54,5 @@ class HashTable {
         throw new Error('Not implemented error');
     }
 }
+
+module.exports = HashTable;
