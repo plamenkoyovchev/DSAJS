@@ -65,4 +65,22 @@ describe('Hashtable', () => {
         expect(ht.keys())
             .toEqual(expect.arrayContaining(expectedKeys));
     });
+
+    test('get should return undefined if key is not in the hashtable', () => {
+        const ht = new HashTable(10);
+
+        ht.add('plasko', 1);
+
+        expect(ht.get('garabet')).toEqual(undefined);
+    })
+
+    test('get should return value if key exist in the hashtable', () => {
+        const ht = new HashTable(10);
+
+        ht.add('pls', 'doooobre');
+        ht.add('id', 15);
+
+        expect(ht.get('pls')).toEqual('doooobre');
+        expect(ht.get('id')).toEqual(15);
+    });
 });
