@@ -22,7 +22,7 @@ class LinkedList {
 
     insert(index, value) {
         if (index < 0 || index >= this.length) {
-            return undefined;
+            return null;
         }
 
         if (index === 0) {
